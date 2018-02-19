@@ -6,15 +6,21 @@ ENV CODENAME xenial
 RUN apt-get update
 RUN apt-get upgrade -y
 
+RUN apt-get install nano
+RUN apt-get install software-properties-common
+RUN add-apt-repository ppa:ondrej/php
+RUN apt-get update
+
+
 # Install PHP
 RUN apt-get install php7.0 php7.0-fpm php7.0-mysql -y
 
 # Install NGINX
-RUN apt-get install wget -y
-RUN wget http://nginx.org/keys/nginx_signing.key
-RUN apt-key add nginx_signing.key
-RUN echo "deb http://nginx.org/packages/ubuntu/ $CODENAME nginx ">> /etc/apt/sources.list
-RUN echo "deb-src http://nginx.org/packages/ubuntu/ $CODENAME nginx ">> /etc/apt/sources.list
+# RUN apt-get install wget -y
+# RUN wget http://nginx.org/keys/nginx_signing.key
+# RUN apt-key add nginx_signing.key
+# RUN echo "deb http://nginx.org/packages/ubuntu/ $CODENAME nginx ">> /etc/apt/sources.list
+# RUN echo "deb-src http://nginx.org/packages/ubuntu/ $CODENAME nginx ">> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install nginx -y
 
