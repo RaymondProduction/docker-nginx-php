@@ -19,6 +19,15 @@ RUN apt-get update
 RUN apt-get install nginx -y
 
 RUN apt-get install mc -y
+RUN service php7.0-fpm start  
+
+COPY sites-available/default  /etc/nginx/sites-available/default
+COPY nginx.conf /etc/nginx/conf.d/default.conf 
+COPY index.php /usr/share/nginx/html/index.php
+RUN echo "11"
+RUN service nginx start
+
+
 # MySQL
 #ENV MYSQL_PWD  raymond
 #RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
