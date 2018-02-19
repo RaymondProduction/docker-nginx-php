@@ -6,10 +6,10 @@ ENV CODENAME xenial
 RUN apt-get update
 RUN apt-get upgrade -y
 
-RUN apt-get install nano
-RUN apt-get install software-properties-common
-RUN add-apt-repository ppa:ondrej/php
-RUN apt-get update
+RUN apt-get install nano -y
+# RUN apt-get install software-properties-common
+# RUN add-apt-repository ppa:ondrej/php
+# RUN apt-get update
 
 
 # Install PHP
